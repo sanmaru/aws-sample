@@ -19,6 +19,7 @@
     "noFallthroughCasesInSwitch": false,
     "tsBuildInfoFile": ".tsbuildinfo",
     "esModuleInterop": false,
-    "allowJs": true
+    "allowJs": true, 
+    "resolveJsonModule": true
   }
 }
