@@ -1,7 +1,6 @@
 service: sample-project
 
 plugins:
-  - serverless-auto-swagger
   - serverless-plugin-typescript
   - serverless-plugin-warmup
   - serverless-offline

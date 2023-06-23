@@ -1,15 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
-/**
- * @swagger
- * paths:
- *   "/":
- *     get:
- *       summary: "Hello world"
- *       response:
- *         "200":
- *           description: "이렇게 작성할 수 있습니다."
- */
+@ApiTags('Hello')
 @Injectable()
 export class AppService {
   getHello(): string {
