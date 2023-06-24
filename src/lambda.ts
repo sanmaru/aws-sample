@@ -16,26 +16,23 @@ const binaryMimeTypes: string[] = [];
 let cachedServer: Server;
 
 async function bootstrapServer(): Promise<Server> {
-  console.log('lambda.ts');
-  console.log('======================');
   if (!cachedServer) {
     const expressApp = express();
     const nestApp = await NestFactory.create(
       AppModule,
       new ExpressAdapter(expressApp),
     );
-    console.log('======================');
-    setupSwagger(nestApp);
+    if(process.env.IS_OFFLINE){
+      setupSwagger(nestApp);
+    }
     nestApp.use(eventContext());
     await nestApp.init();
     cachedServer = createServer(expressApp, undefined, binaryMimeTypes);
   }
-  console.log('======================');
   return cachedServer;
 }
 
 export const handler: Handler = async (event: any, context: Context) => {
-  console.log('======================');
   cachedServer = await bootstrapServer();
   return proxy(cachedServer, event, context, 'PROMISE').promise;
 };

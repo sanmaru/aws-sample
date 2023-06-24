@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "offline": "serverless offline start",
+    "deploy": "serverless deploy",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -25,6 +26,8 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^7.0.4",
+    "aws-serverless-express": "^3.4.0",
+    "nest": "^0.1.6",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"
   },
